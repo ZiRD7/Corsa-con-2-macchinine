@@ -8,7 +8,7 @@ namespace Macchinine
 {
     class Globals
     {
-        public static int turbo = 10;
+        public static int turbo = 20;
 
         public static int x = 20;
     }

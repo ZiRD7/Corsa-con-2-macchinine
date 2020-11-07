@@ -18,13 +18,13 @@ namespace Macchinine
 
     public partial class frmMain : Form
     {
+        // BackgroundWorker
         BackgroundWorker bgwMacchinaNera, bgwMacchinaRossa;
 
         public frmMain()
         {
             InitializeComponent();
         }
-
 
         private void frmMain_Load(object sender, EventArgs e)
         {
@@ -87,6 +87,8 @@ namespace Macchinine
 
             btnAvvia.Enabled = true;
             btnStop.Enabled = false;
+
+            lblTesto.Text = "";
         }
 
 
@@ -97,15 +99,28 @@ namespace Macchinine
 
             while (img.Right < pcbBackground.Right) // finchè non arrivo alla fine
             {
-                Thread.Sleep(100); // piccola pausa
+                Thread.Sleep(10); // piccola pausa
                 bgw.ReportProgress(pcbBackground.Right - img.Right, img); // riporto la distanza dal finale e la pictureBox
 
                 if(bgw.CancellationPending)
                 {
-                    e.Result = (false, "NO"); // no perchè evo passare una stringa per la tupla
+                    e.Result = (false, "NO"); // no perchè devo passare una stringa per la tupla
                     return;
                 }
             }
+
+            //fermo l'altra macchina (se ho finito il ciclo vuol dire che ho finito la mia corsa)
+            if (bgw == bgwMacchinaNera)
+            {
+                bgwMacchinaRossa.CancelAsync();
+                e.Result = (false, "NO"); // no perchè devo passare una stringa per la tupla
+            }
+            else
+            {
+                bgwMacchinaNera.CancelAsync();
+                e.Result = (false, "NO"); // no perchè devo passare una stringa per la tupla
+            }
+
             bgw.CancelAsync();
             e.Result = (true, img.AccessibleName); // ho concluso il mio lavoro (true) e nome del vincitore
         }
@@ -116,7 +131,7 @@ namespace Macchinine
             PictureBox img = e.UserState as PictureBox;
             Random random = new Random();
 
-            var avanzamento = random.Next(50);
+            var avanzamento = random.Next(Globals.turbo);
             img.Left += avanzamento;
         }
 
