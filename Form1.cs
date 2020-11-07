@@ -20,6 +20,8 @@ namespace Macchinine
     {
         // BackgroundWorker
         BackgroundWorker bgwMacchinaNera, bgwMacchinaRossa;
+        // random
+        Random random = new Random();
 
         public frmMain()
         {
@@ -28,11 +30,15 @@ namespace Macchinine
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            pcbMacchinaNera.BackColor = Color.Black;
-            pcbMacchinaRossa.BackColor = Color.Black;
+            // Imposto lo stato iniziale
 
-            pcbMacchinaNera.Left = Globals.x;
-            pcbMacchinaRossa.Left = Globals.x;
+            this.BackColor = Color.Black;
+            lblTesto.BackColor = Color.White;
+
+            pcbMacchinaNera.Left = Globals.CarX;
+            pcbMacchinaRossa.Left = Globals.CarX;
+
+            pcbFinishLine.Left = random.Next(Globals.FinishX - 100, Globals.FinishX + 180); // la fine varia
 
             lblTesto.Text = "";
 
@@ -82,8 +88,9 @@ namespace Macchinine
             bgwMacchinaNera.CancelAsync();
             bgwMacchinaRossa.CancelAsync();
 
-            pcbMacchinaNera.Left = Globals.x;
-            pcbMacchinaRossa.Left = Globals.x;
+            pcbMacchinaNera.Left = Globals.CarX;
+            pcbMacchinaRossa.Left = Globals.CarX;
+            pcbFinishLine.Left = random.Next(Globals.FinishX - 100, Globals.FinishX + 180); // la fine varia
 
             btnAvvia.Enabled = true;
             btnStop.Enabled = false;
@@ -97,7 +104,7 @@ namespace Macchinine
             BackgroundWorker bgw = sender as BackgroundWorker;
             PictureBox img = e.Argument as PictureBox;
 
-            while (img.Right < pcbBackground.Right) // finchè non arrivo alla fine
+            while (img.Right < pcbFinishLine.Left + 2) // finchè non taglio il traguardo
             {
                 Thread.Sleep(10); // piccola pausa
                 bgw.ReportProgress(pcbBackground.Right - img.Right, img); // riporto la distanza dal finale e la pictureBox
@@ -128,8 +135,7 @@ namespace Macchinine
 
         private void bgw_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            PictureBox img = e.UserState as PictureBox;
-            Random random = new Random();
+            PictureBox img = e.UserState as PictureBox;            
 
             var avanzamento = random.Next(Globals.turbo);
             img.Left += avanzamento;

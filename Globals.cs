@@ -10,6 +10,8 @@ namespace Macchinine
     {
         public static int turbo = 20;
 
-        public static int x = 20;
+        public static int CarX = 20;
+
+        public static int FinishX = 1500;
     }
 }

@@ -29,49 +29,19 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            this.pcbBackground = new System.Windows.Forms.PictureBox();
-            this.pcbMacchinaNera = new System.Windows.Forms.PictureBox();
-            this.pcbMacchinaRossa = new System.Windows.Forms.PictureBox();
             this.btnAvvia = new System.Windows.Forms.Button();
             this.lblTesto = new System.Windows.Forms.Label();
             this.btnStop = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbBackground)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbMacchinaNera)).BeginInit();
+            this.pcbFinishLine = new System.Windows.Forms.PictureBox();
+            this.pcbMacchinaRossa = new System.Windows.Forms.PictureBox();
+            this.pcbMacchinaNera = new System.Windows.Forms.PictureBox();
+            this.pcbBackground = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbFinishLine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbMacchinaRossa)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbMacchinaNera)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbBackground)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pcbBackground
-            // 
-            this.pcbBackground.Image = global::Macchinine.Properties.Resources.road_trip_background_10864211;
-            this.pcbBackground.Location = new System.Drawing.Point(12, 12);
-            this.pcbBackground.Name = "pcbBackground";
-            this.pcbBackground.Size = new System.Drawing.Size(1803, 583);
-            this.pcbBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pcbBackground.TabIndex = 0;
-            this.pcbBackground.TabStop = false;
-            // 
-            // pcbMacchinaNera
-            // 
-            this.pcbMacchinaNera.AccessibleName = "Macchina nera";
-            this.pcbMacchinaNera.Image = global::Macchinine.Properties.Resources.macchinabianca;
-            this.pcbMacchinaNera.Location = new System.Drawing.Point(33, 79);
-            this.pcbMacchinaNera.Name = "pcbMacchinaNera";
-            this.pcbMacchinaNera.Size = new System.Drawing.Size(289, 150);
-            this.pcbMacchinaNera.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pcbMacchinaNera.TabIndex = 1;
-            this.pcbMacchinaNera.TabStop = false;
-            // 
-            // pcbMacchinaRossa
-            // 
-            this.pcbMacchinaRossa.AccessibleName = "Macchina rossa";
-            this.pcbMacchinaRossa.Image = global::Macchinine.Properties.Resources.macchinarossa;
-            this.pcbMacchinaRossa.Location = new System.Drawing.Point(33, 374);
-            this.pcbMacchinaRossa.Name = "pcbMacchinaRossa";
-            this.pcbMacchinaRossa.Size = new System.Drawing.Size(289, 139);
-            this.pcbMacchinaRossa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pcbMacchinaRossa.TabIndex = 2;
-            this.pcbMacchinaRossa.TabStop = false;
             // 
             // btnAvvia
             // 
@@ -116,12 +86,55 @@
             this.btnReset.UseVisualStyleBackColor = false;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
+            // pcbFinishLine
+            // 
+            this.pcbFinishLine.Image = global::Macchinine.Properties.Resources.finishline;
+            this.pcbFinishLine.Location = new System.Drawing.Point(1670, 29);
+            this.pcbFinishLine.Name = "pcbFinishLine";
+            this.pcbFinishLine.Size = new System.Drawing.Size(124, 538);
+            this.pcbFinishLine.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcbFinishLine.TabIndex = 7;
+            this.pcbFinishLine.TabStop = false;
+            // 
+            // pcbMacchinaRossa
+            // 
+            this.pcbMacchinaRossa.AccessibleName = "Macchina rossa";
+            this.pcbMacchinaRossa.Image = global::Macchinine.Properties.Resources.macchinarossa;
+            this.pcbMacchinaRossa.Location = new System.Drawing.Point(33, 374);
+            this.pcbMacchinaRossa.Name = "pcbMacchinaRossa";
+            this.pcbMacchinaRossa.Size = new System.Drawing.Size(289, 139);
+            this.pcbMacchinaRossa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pcbMacchinaRossa.TabIndex = 2;
+            this.pcbMacchinaRossa.TabStop = false;
+            // 
+            // pcbMacchinaNera
+            // 
+            this.pcbMacchinaNera.AccessibleName = "Macchina nera";
+            this.pcbMacchinaNera.Image = global::Macchinine.Properties.Resources.macchinabianca;
+            this.pcbMacchinaNera.Location = new System.Drawing.Point(33, 79);
+            this.pcbMacchinaNera.Name = "pcbMacchinaNera";
+            this.pcbMacchinaNera.Size = new System.Drawing.Size(289, 150);
+            this.pcbMacchinaNera.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pcbMacchinaNera.TabIndex = 1;
+            this.pcbMacchinaNera.TabStop = false;
+            // 
+            // pcbBackground
+            // 
+            this.pcbBackground.Image = global::Macchinine.Properties.Resources.road_trip_background_10864211;
+            this.pcbBackground.Location = new System.Drawing.Point(12, 12);
+            this.pcbBackground.Name = "pcbBackground";
+            this.pcbBackground.Size = new System.Drawing.Size(1803, 583);
+            this.pcbBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcbBackground.TabIndex = 0;
+            this.pcbBackground.TabStop = false;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1819, 629);
+            this.Controls.Add(this.pcbFinishLine);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnStop);
             this.Controls.Add(this.lblTesto);
@@ -135,9 +148,10 @@
             this.Name = "frmMain";
             this.Text = "Corsa";
             this.Load += new System.EventHandler(this.frmMain_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pcbBackground)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbMacchinaNera)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbFinishLine)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbMacchinaRossa)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbMacchinaNera)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbBackground)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -151,6 +165,7 @@
         private System.Windows.Forms.Label lblTesto;
         private System.Windows.Forms.Button btnStop;
         private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.PictureBox pcbFinishLine;
     }
 }
 

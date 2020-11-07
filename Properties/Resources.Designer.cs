@@ -63,6 +63,16 @@ namespace Macchinine.Properties {
         /// <summary>
         ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap finishline {
+            get {
+                object obj = ResourceManager.GetObject("finishline", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap macchinabianca {
             get {
                 object obj = ResourceManager.GetObject("macchinabianca", resourceCulture);
